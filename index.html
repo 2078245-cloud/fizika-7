@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#142638">
+  <title>Физика — начало путешествия</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #eef3f7;
+      color: #172c3e;
+      line-height: 1.65;
+    }
+
+    header {
+      padding: 38px 20px;
+      background: #142638;
+      color: white;
+    }
+
+    .container {
+      width: min(100%, 800px);
+      margin: 0 auto;
+    }
+
+    .label {
+      color: #86e0bf;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      margin: 12px 0;
+      font-size: clamp(30px, 7vw, 46px);
+      line-height: 1.2;
+    }
+
+    header p {
+      margin-bottom: 0;
+      color: #d1dfeb;
+    }
+
+    main {
+      padding: 24px 16px 40px;
+    }
+
+    .card {
+      margin-bottom: 20px;
+      padding: 24px;
+      background: white;
+      border: 1px solid #dce5ed;
+      border-radius: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 25px;
+      line-height: 1.3;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 5px 12px;
+      border-radius: 30px;
+      background: #e5f6ef;
+      color: #176344;
+      font-size: 14px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      margin-top: 12px;
+      padding: 16px;
+      border: 2px solid #dce5ed;
+      border-radius: 14px;
+      background: #f7fafc;
+      color: #172c3e;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    button:hover {
+      border-color: #237f62;
+    }
+
+    button:focus-visible {
+      outline: 3px solid #237f62;
+      outline-offset: 3px;
+    }
+
+    .feedback {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 14px;
+    }
+
+    .correct {
+      background: #e5f6ef;
+      color: #15583e;
+    }
+
+    .hint {
+      background: #fff3d8;
+      color: #704d10;
+    }
+
+    .muted {
+      color: #526879;
+      font-size: 15px;
+    }
+
+    footer {
+      padding: 0 20px 30px;
+      color: #526879;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 420px) {
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="label">ФИЗИКА · 7 КЛАСС</div>
+      <h1>Пойми, как устроен мир</h1>
+      <p>
+        Через LEGO, игры, природу и небольшие открытия.
+        Начинаем с нуля — без спешки.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <span class="tag">Первое занятие</span>
+      <h2>Сегодня можно без формул</h2>
+      <p>
+        Не нужно заранее знать физику.
+        Начнём с предмета, который тебе хорошо знаком.
+      </p>
+      <p>
+        Возьми кусочек пластилина или представь,
+        что держишь его в руке.
+        Из него можно сделать шар, рыбку или маленькую лодку.
+      </p>
+    </section>
+
+    <section class="card">
+      <span class="tag">Одна новая мысль</span>
+      <h2>Предмет и материал — не одно и то же</h2>
+      <p>
+        Шар и лодочка — разные предметы.
+        В физике предмет называют физическим телом.
+      </p>
+      <p>
+        Пластилин — материал, из которого они сделаны.
+        Можно изменить форму предмета,
+        но он по-прежнему будет пластилиновым.
+      </p>
+      <p class="muted">
+        Пример: деталь LEGO — предмет,
+        а пластмасса — материал детали.
+      </p>
+    </section>
+
+    <section class="card" aria-labelledby="question">
+      <span class="tag">Попробуй сам</span>
+      <h2 id="question">Изменили форму. А материал?</h2>
+      <p>
+        Ты слепил из пластилинового шара рыбку.
+        Что произошло?
+      </p>
+
+      <button type="button" data-answer="correct">
+        Изменился предмет и его форма, но материал остался пластилином.
+      </button>
+
+      <button type="button" data-answer="hint">
+        Пластилин превратился в настоящее вещество живой рыбы.
+      </button>
+
+      <div
+        id="feedback"
+        role="status"
+        aria-live="polite"
+        hidden
+      ></div>
+    </section>
+
+    <section class="card">
+      <h2>Маленькое исследование</h2>
+      <p>
+        Найди рядом два разных предмета,
+        сделанных из одного материала.
+        Назови предметы и материал.
+      </p>
+      <p class="muted">
+        Пока ответь вслух. Вводить личные данные не нужно.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Первая версия учебника · Вводное занятие
+  </footer>
+
+  <script>
+    const feedback = document.getElementById("feedback");
+
+    document.querySelectorAll("[data-answer]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const correct = button.dataset.answer === "correct";
+
+        feedback.hidden = false;
+        feedback.className = correct
+          ? "feedback correct"
+          : "feedback hint";
+
+        feedback.textContent = correct
+          ? "Верно! Ты различил предмет и материал. Рыбка — новая форма предмета, а материал остался тем же."
+          : "Давай посмотрим внимательнее: у фигурки появилась форма рыбки, но она всё ещё сделана из пластилина. Попробуй другой ответ.";
+      });
+    });
+  </script>
+</body>
+</html>
